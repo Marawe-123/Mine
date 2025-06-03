@@ -1,0 +1,183 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700&display=swap');
+
+@layer base {
+  * {
+    font-family: 'Tajawal', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  }
+  
+  html {
+    direction: rtl;
+  }
+  
+  body {
+    font-family: 'Tajawal', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    direction: rtl;
+  }
+}
+
+:root {
+  --background: 250 250% 98%; /* #fafafa */
+  --foreground: 20 14% 4%; /* #0a0a0a */
+  --muted: 210 40% 98%; /* #f1f5f9 */
+  --muted-foreground: 215 16% 47%; /* #64748b */
+  --popover: 0 0% 100%; /* #ffffff */
+  --popover-foreground: 20 14% 4%; /* #0a0a0a */
+  --card: 0 0% 100%; /* #ffffff */
+  --card-foreground: 20 14% 4%; /* #0a0a0a */
+  --border: 220 13% 91%; /* #e2e8f0 */
+  --input: 220 13% 91%; /* #e2e8f0 */
+  --primary: 207 90% 54%; /* #1976d2 */
+  --primary-foreground: 210 40% 98%; /* #f1f5f9 */
+  --secondary: 210 40% 96%; /* #f1f5f9 */
+  --secondary-foreground: 222 84% 5%; /* #0f172a */
+  --accent: 210 40% 96%; /* #f1f5f9 */
+  --accent-foreground: 222 84% 5%; /* #0f172a */
+  --destructive: 0 84% 60%; /* #ef4444 */
+  --destructive-foreground: 210 40% 98%; /* #f1f5f9 */
+  --ring: 207 90% 54%; /* #1976d2 */
+  --radius: 0.5rem;
+  
+  /* Custom colors for the job collector app */
+  --success: 142 76% 36%; /* #16a34a */
+  --success-foreground: 210 40% 98%; /* #f1f5f9 */
+  --warning: 32 95% 44%; /* #ea580c */
+  --warning-foreground: 210 40% 98%; /* #f1f5f9 */
+  --info: 207 90% 54%; /* #1976d2 */
+  --info-foreground: 210 40% 98%; /* #f1f5f9 */
+  
+  /* Sidebar colors */
+  --sidebar-background: 0 0% 100%; /* #ffffff */
+  --sidebar-foreground: 20 14% 4%; /* #0a0a0a */
+  --sidebar-primary: 207 90% 54%; /* #1976d2 */
+  --sidebar-primary-foreground: 210 40% 98%; /* #f1f5f9 */
+  --sidebar-accent: 210 40% 96%; /* #f1f5f9 */
+  --sidebar-accent-foreground: 222 84% 5%; /* #0f172a */
+  --sidebar-border: 220 13% 91%; /* #e2e8f0 */
+  --sidebar-ring: 207 90% 54%; /* #1976d2 */
+}
+
+.dark {
+  --background: 224 71% 4%; /* #0f172a */
+  --foreground: 213 31% 91%; /* #e2e8f0 */
+  --muted: 223 47% 11%; /* #1e293b */
+  --muted-foreground: 215 16% 57%; /* #94a3b8 */
+  --popover: 224 71% 4%; /* #0f172a */
+  --popover-foreground: 213 31% 91%; /* #e2e8f0 */
+  --card: 224 71% 4%; /* #0f172a */
+  --card-foreground: 213 31% 91%; /* #e2e8f0 */
+  --border: 216 34% 17%; /* #334155 */
+  --input: 216 34% 17%; /* #334155 */
+  --primary: 207 90% 54%; /* #1976d2 */
+  --primary-foreground: 224 71% 4%; /* #0f172a */
+  --secondary: 222 84% 5%; /* #0f172a */
+  --secondary-foreground: 213 31% 91%; /* #e2e8f0 */
+  --accent: 216 34% 17%; /* #334155 */
+  --accent-foreground: 213 31% 91%; /* #e2e8f0 */
+  --destructive: 0 63% 31%; /* #991b1b */
+  --destructive-foreground: 213 31% 91%; /* #e2e8f0 */
+  --ring: 207 90% 54%; /* #1976d2 */
+  
+  /* Custom colors for dark mode */
+  --success: 142 76% 36%; /* #16a34a */
+  --success-foreground: 224 71% 4%; /* #0f172a */
+  --warning: 32 95% 44%; /* #ea580c */
+  --warning-foreground: 224 71% 4%; /* #0f172a */
+  --info: 207 90% 54%; /* #1976d2 */
+  --info-foreground: 224 71% 4%; /* #0f172a */
+  
+  /* Sidebar colors for dark mode */
+  --sidebar-background: 224 71% 4%; /* #0f172a */
+  --sidebar-foreground: 213 31% 91%; /* #e2e8f0 */
+  --sidebar-primary: 207 90% 54%; /* #1976d2 */
+  --sidebar-primary-foreground: 224 71% 4%; /* #0f172a */
+  --sidebar-accent: 216 34% 17%; /* #334155 */
+  --sidebar-accent-foreground: 213 31% 91%; /* #e2e8f0 */
+  --sidebar-border: 216 34% 17%; /* #334155 */
+  --sidebar-ring: 207 90% 54%; /* #1976d2 */
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    font-family: 'Tajawal', sans-serif;
+  }
+
+  /* RTL Support */
+  [dir="rtl"] {
+    direction: rtl;
+    text-align: right;
+  }
+
+  /* Custom utility classes */
+  .text-success {
+    color: hsl(var(--success));
+  }
+
+  .text-warning {
+    color: hsl(var(--warning));
+  }
+
+  .text-info {
+    color: hsl(var(--info));
+  }
+
+  .bg-success {
+    background-color: hsl(var(--success));
+  }
+
+  .bg-warning {
+    background-color: hsl(var(--warning));
+  }
+
+  .bg-info {
+    background-color: hsl(var(--info));
+  }
+
+  /* Animation classes */
+  .status-badge {
+    animation: pulse 2s infinite;
+  }
+
+  .card-hover {
+    transition: transform 0.2s ease;
+  }
+
+  .card-hover:hover {
+    transform: translateY(-2px);
+  }
+
+  /* Arabic font improvements */
+  .font-arabic {
+    font-family: 'Tajawal', sans-serif;
+  }
+
+  /* Custom scrollbar for RTL */
+  .scrollbar-rtl::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+
+  .scrollbar-rtl::-webkit-scrollbar-track {
+    background: hsl(var(--muted));
+  }
+
+  .scrollbar-rtl::-webkit-scrollbar-thumb {
+    background: hsl(var(--border));
+    border-radius: 3px;
+  }
+
+  .scrollbar-rtl::-webkit-scrollbar-thumb:hover {
+    background: hsl(var(--muted-foreground));
+  }
+}
+
+/* FontAwesome icon support */
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css');

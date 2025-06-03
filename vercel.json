@@ -1,0 +1,19 @@
+{
+  "version": 2,
+  "buildCommand": "npm run build",
+  "outputDirectory": "dist",
+  "framework": "vite",
+  "functions": {
+    "api/**/*.ts": {
+      "memory": 1024,
+      "maxDuration": 10
+    }
+  },
+  "env": {
+    "SESSION_SECRET": "@session_secret",
+    "DATABASE_URL": "@database_url",
+    "FACEBOOK_APP_ID": "@facebook_app_id",
+    "FACEBOOK_APP_SECRET": "@facebook_app_secret",
+    "FACEBOOK_EMAIL": "@facebook_email"
+  }
+}
